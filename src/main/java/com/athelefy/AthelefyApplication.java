@@ -1,4 +1,4 @@
-package com.athelefy.ath;
+package com.athelefy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
