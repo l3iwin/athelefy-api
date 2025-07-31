@@ -1,0 +1,288 @@
+[
+  {
+    "fullName": "Pedro Miguel Viegas Malvas Silva",
+    "strongHand": "Left",
+    "dateOfBirth": "21-07-2006",
+    "weight": "80",
+    "height": "180",
+    "shirtNumber": "3",
+    "cipa": "222773",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Right Wing"
+      },
+      {
+        "name": "Right Back"
+      }
+    ]
+  },
+  {
+    "fullName": "Duarte Jose Ribeiro Reis",
+    "strongHand": "Right",
+    "dateOfBirth": "08-05-2005",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "4",
+    "cipa": "208652",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Diogo Lapa Abadia",
+    "strongHand": "Right",
+    "dateOfBirth": "19-12-1998",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "7",
+    "cipa": "183251",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Rui Pedro Almeida Goncalves",
+    "strongHand": "Right",
+    "dateOfBirth": "08-05-1999",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "8",
+    "cipa" :"188242",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Francisco Barreiros Larcher Santos Cruz",
+    "strongHand": "Right",
+    "dateOfBirth": "20-01-1999",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "10",
+    "cipa": "197557",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Joao Henrique Coelho Veloso",
+    "strongHand": "Right",
+    "dateOfBirth": "02-09-1995",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "11",
+    "cipa": "197254",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Wing"
+      }
+    ]
+  },
+  {
+    "fullName": "Francisco Felix Felicio",
+    "strongHand": "Left",
+    "dateOfBirth": "15-01-2000",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "13",
+    "cipa": "199902",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Right Wing"
+      },
+      {
+        "name": "Right Back"
+      }
+    ]
+  },
+  {
+    "fullName": "Joao Pedro Martins Machado",
+    "strongHand": "Right",
+    "dateOfBirth": "03-01-1997",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "15",
+    "cipa": "195333",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Pedro Maria Brassard Fonseca",
+    "strongHand": "Right",
+    "dateOfBirth": "27-01-2005",
+    "weight": "12",
+    "height": "12",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "shirtNumber": "16",
+    "cipa": "239242",
+    "positions": [
+      {
+        "name": "Goalkeeper"
+      }
+    ]
+  },
+  {
+    "fullName": "Nuno Miguel Paiva Madruga Nunes",
+    "strongHand": "Right",
+    "dateOfBirth": "11-03-1997",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "19",
+    "cipa": "195858",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Tiago Filipe Castanheira Gil",
+    "strongHand": "Right",
+    "dateOfBirth": "30-08-1990",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "22",
+    "cipa": "158488",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Left Back"
+      },
+      {
+        "name": "Right Back"
+      },
+      {
+        "name": "Central"
+      }
+    ]
+  },
+  {
+    "fullName": "Fernando Jorge Mendes Baptista",
+    "strongHand": "Right",
+    "dateOfBirth": "24-02-1994",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "23",
+    "cipa": "226632",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Pivot"
+      }
+    ]
+  },
+  {
+    "fullName": "Miguel Caetano Costa Santos",
+    "strongHand": "Right",
+    "dateOfBirth": "24-02-1994",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "24",
+    "cipa": "211113",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Goalkeeper"
+      }
+    ]
+  },
+  {
+    "fullName": "Ivan Santos Rocha",
+    "strongHand": "Right",
+    "dateOfBirth": "25-06-2000",
+    "weight": "12",
+    "height": "12",
+    "shirtNumber": "26",
+    "cipa": "218764",
+    "team": {
+      "name": "CCR Alto do Moinho"
+    },
+    "positions": [
+      {
+        "name": "Pivot"
+      }
+    ]
+  }
+]

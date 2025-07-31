@@ -1,0 +1,14 @@
+[
+  {
+    "firstName": "Tomás",
+    "lastName": "Cruz",
+    "dateOfBirth": "21-07-2006",
+    "role": "Coach"
+  },
+  {
+    "firstName": "Sandra",
+    "lastName": "Contente",
+    "dateOfBirth": "21-07-2006",
+    "role": "Fisioterapeuta"
+  }
+]

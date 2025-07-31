@@ -1,0 +1,312 @@
+{
+    "homeTeam": "CCP Serpa",
+    "awayTeam": "CCR Alto do Moinho",
+    "homeScore": "27",
+    "awayScore": "27",
+    "gameDateTime": "2022-09-24T17:30:00",
+    "halfList": [
+        {
+            "homeScore": "14",
+            "awayScore": "14",
+            "statisticSheetList": [
+                {
+                    "player": {
+                        "id": 1
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "05:00",
+                            "goalType": "6M",
+                            "counterAttack": true,
+                            "goalMissed": true
+                        }
+                    ],
+                    "assistCount": 0,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 2
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "05:00",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        }
+                    ],
+                    "assistCount": 0,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 3
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "03:01",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "05:00",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        },
+                        {
+                            "goalTime": "26:03",
+                            "goalType": "6M",
+                            "counterAttack": true,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "27:15",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        }
+                    ],
+                    "assistCount": 3,
+                    "interceptionsCount": 1,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 4
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "01:00",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "02:10",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "15:00",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        },
+                        {
+                            "goalTime": "11:40",
+                            "goalType": "6M",
+                            "counterAttack": true,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "18:14",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "25:00",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        }
+                    ],
+                    "assistCount": 2,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 1,
+                    "badPassCount": 2,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 5
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "05:00",
+                            "goalType": "9M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        }
+                    ],
+                    "assistCount": 3,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 1,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 1,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "16:22",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 6
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "25:25",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        }
+                    ],
+                    "assistCount": 1,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 1,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 7
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "12:44",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "15:00",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": true
+                        },
+                        {
+                            "goalTime": "20:10",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        }
+                    ],
+                    "assistCount": 1,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 11
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "06:57",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "28:13",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        }
+                    ],
+                    "assistCount": 0,
+                    "interceptionsCount": 1,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "",
+                    "secondTwoMinuteTime": "",
+                    "thirdTwoMinuteTime": ""
+                },
+                {
+                    "player": {
+                        "id": 14
+                    },
+                    "goals": [
+                        {
+                            "goalTime": "18:33",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        },
+                        {
+                            "goalTime": "24:10",
+                            "goalType": "6M",
+                            "counterAttack": false,
+                            "goalMissed": false
+                        }
+                    ],
+                    "assistCount": 1,
+                    "interceptionsCount": 0,
+                    "offensiveFaultCount": 0,
+                    "blockCount": 0,
+                    "badPassCount": 0,
+                    "defensiveFaultCount": 0,
+                    "travellingCount": 0,
+                    "yellowCardTime": "",
+                    "redCardTime": "",
+                    "firstTwoMinuteTime": "15:00",
+                    "secondTwoMinuteTime": "20:00",
+                    "thirdTwoMinuteTime": ""
+                }
+            ]
+        }
+    ]
+}

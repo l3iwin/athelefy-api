@@ -1,0 +1,16 @@
+-Dspring.profiles.active=local
+-Dspring.datasources.url=jdbc:h2:mem:mydb
+-Dspring.datasources.username=sa
+-Dspring.datasources.password=
+-Dspring.datasources.driver-class-name=org.h2.Driver
+-Dspring.jpa.hibernate.ddl-auto=update
+-Dspring.jpa.spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+-Dspring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
+-Dspring.jpa.defer-datasource-initialization=true
+-Dspring.h2.console.enabled=true
+-Dspring.flyway.enabled=false
+-Dspring.jpa.hibernate.format-sql=true
+-Dspring.jpa.show-sql=true
+-Dlogging.level.org.hibernate.SQL=DEBUG
+-Dlogging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
+-Dendpoints.cros.allow-origins=https://localhost:4200
