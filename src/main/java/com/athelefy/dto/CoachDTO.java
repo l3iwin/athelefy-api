@@ -9,7 +9,6 @@ public class CoachDTO implements Serializable {
     private Long id;
     private CoachRoleDTO coachRoleDTO;
     private UsersDTO usersDTO;
-    Set<TeamDTO> teamDTOS;
 
     public CoachDTO() {}
 
@@ -56,11 +55,11 @@ public class CoachDTO implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CoachDTO coachDTO = (CoachDTO) o;
-        return Objects.equals(id, coachDTO.id) && Objects.equals(coachRoleDTO, coachDTO.coachRoleDTO) && Objects.equals(usersDTO, coachDTO.usersDTO) && Objects.equals(teamDTOS, coachDTO.teamDTOS);
+        return Objects.equals(id, coachDTO.id) && Objects.equals(coachRoleDTO, coachDTO.coachRoleDTO) && Objects.equals(usersDTO, coachDTO.usersDTO);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, coachRoleDTO, usersDTO, teamDTOS);
+        return Objects.hash(id, coachRoleDTO, usersDTO);
     }
 }

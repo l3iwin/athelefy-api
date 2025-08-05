@@ -9,16 +9,18 @@ public class TeamDTO implements Serializable {
     private Long id;
     private String name;
     private String category;
-    private ClubDTO clubDto;
+    private ClubDTO clubDTO;
     private SportDTO sportDTO;
     Set<PlayerDTO> playerDTOS;
     Set<CoachDTO> coachDTOS;
 
-    public TeamDTO(Long id, String name, String category, ClubDTO clubDto, SportDTO sportDTO) {
+    public TeamDTO() {}
+
+    public TeamDTO(Long id, String name, String category, ClubDTO clubDTO, SportDTO sportDTO) {
         this.id = id;
         this.name = name;
         this.category = category;
-        this.clubDto = clubDto;
+        this.clubDTO = clubDTO;
         this.sportDTO = sportDTO;
     }
 
@@ -47,11 +49,11 @@ public class TeamDTO implements Serializable {
     }
 
     public ClubDTO getClub() {
-        return clubDto;
+        return clubDTO;
     }
 
     public void setClub(ClubDTO clubDto) {
-        this.clubDto = clubDto;
+        this.clubDTO = clubDto;
     }
 
     public SportDTO getSport() {
@@ -68,7 +70,7 @@ public class TeamDTO implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
-                ", club=" + clubDto +
+                ", club=" + clubDTO +
                 ", sport=" + sportDTO +
                 '}';
     }
@@ -77,11 +79,11 @@ public class TeamDTO implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         TeamDTO teamDTO = (TeamDTO) o;
-        return Objects.equals(id, teamDTO.id) && Objects.equals(name, teamDTO.name) && Objects.equals(category, teamDTO.category) && Objects.equals(clubDto, teamDTO.clubDto) && Objects.equals(sportDTO, teamDTO.sportDTO) && Objects.equals(playerDTOS, teamDTO.playerDTOS) && Objects.equals(coachDTOS, teamDTO.coachDTOS);
+        return Objects.equals(id, teamDTO.id) && Objects.equals(name, teamDTO.name) && Objects.equals(category, teamDTO.category) && Objects.equals(clubDTO, teamDTO.clubDTO) && Objects.equals(sportDTO, teamDTO.sportDTO) && Objects.equals(playerDTOS, teamDTO.playerDTOS) && Objects.equals(coachDTOS, teamDTO.coachDTOS);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, category, clubDto, sportDTO, playerDTOS, coachDTOS);
+        return Objects.hash(id, name, category, clubDTO, sportDTO, playerDTOS, coachDTOS);
     }
 }
