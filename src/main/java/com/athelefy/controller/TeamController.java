@@ -1,8 +1,6 @@
 package com.athelefy.controller;
 
-import com.athelefy.dto.CoachDTO;
 import com.athelefy.dto.TeamDTO;
-import com.athelefy.entity.Team;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
