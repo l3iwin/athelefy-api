@@ -1,11 +1,37 @@
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (1, 'Goalkeeper', 'GK');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (2, 'Left Back', 'LB');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (3, 'Right Back', 'RB');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (4, 'Left Wing', 'LW');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (5, 'Right Wing', 'RW');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (6, 'Central', 'C');
---INSERT INTO POSITION (pos_id, pos_name, pos_short_name) VALUES (7, 'Pivot', 'PV');
---
+INSERT INTO CLUB (id, name, country) VALUES (1, 'CCR Alto do Moinho', 'Portugal');
+
+INSERT INTO TEAM (id, name, category, sport) VALUES (1, 'Senior', '', 'Handball');
+
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (1, 'Pedro Miguel Viegas Malvas Silva',          'PD',   '3',    222773, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (2, 'Duarte Jose Ribeiro Reis',                  'C',    '4',    208652, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (3, 'Diogo Lapa Abadia',                         'C',    '7',    183251, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (4, 'Rui Pedro Almeida Gonçalves',               'LE',   '8',    188242, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (5, 'Francisco Barreiros Larcher Santos Cruz',   'C',    '10',   197557, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (6, 'João Henrique Coelho Veloso',               'PE',   '11',   197254, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (7, 'Francisco Felix Felício',                   'LD',   '13',   199902, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (8, 'João Pedro Martins Machado',                'LD',   '15',   195333, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (9, 'Pedro Maria Brassard Fonseca',              'GK',   '16',   239242, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (10, 'Nuno Miguel Paiva Madruga Nunes',          'LD',   '19',   195858, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (11, 'Tiago Filipe Castanheira Gil',             'LE',   '22',   158488, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (12, 'Fernando Jorge Mendes Baptista',           'PV',   '23',   226632, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (13, 'Miguel Caetano Costa Santos',              'GK',   '24',   211113, '90',   '185');
+INSERT INTO PLAYER (id, full_name, position, shirt_number, federation_number, weight, height) VALUES (14, 'Ivan Santos Rocha',                        'PV',   '26',   218764, '90',   '185');
+
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (1, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (2, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (3, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (4, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (5, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (6, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (7, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (8, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (9, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (10, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (11, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (12, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (13, 1);
+INSERT INTO PLAYER_TEAMS (player_id, team_id) VALUES (14, 1);
+
 --INSERT INTO TEAM (id, name) VALUES (1, 'CCR Alto do Moinho');
 --INSERT INTO TEAM (id, name) VALUES (2, 'GM 1º Dezembro');
 --INSERT INTO TEAM (id, name) VALUES (3, 'CA Rangers Telheiras');

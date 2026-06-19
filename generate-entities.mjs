@@ -42,14 +42,14 @@ function toKebab(name) {
     .toLowerCase();
 }
 
-// ─── Limpeza e criação do output ──────────────
+// ─── Limpeza do output ────────────────────────
 if (fs.existsSync(ANGULAR_OUTPUT_DIR)) {
   for (const file of fs.readdirSync(ANGULAR_OUTPUT_DIR)) {
     fs.rmSync(path.join(ANGULAR_OUTPUT_DIR, file), { recursive: true, force: true });
   }
   console.log(`🗑️  Output anterior limpo: ${ANGULAR_OUTPUT_DIR}`);
 }
-console.log(`📁 Pasta criada: ${ANGULAR_OUTPUT_DIR}\n`);
+console.log(`📁 Pasta de output: ${ANGULAR_OUTPUT_DIR}\n`);
 
 // ─── Leitura dos ficheiros Java ───────────────
 const javaFiles = fs.readdirSync(JAVA_ENTITIES_DIR)
@@ -70,7 +70,6 @@ for (const { name, content } of javaFiles) {
 
   console.log(`   ↳ Enum: ${name}`);
 
-  // Extrai valores do enum: linhas em maiúsculas antes de métodos ou ;
   const enumBodyMatch = content.match(/\{([^}]+)\}/s);
   if (!enumBodyMatch) continue;
 
@@ -98,31 +97,67 @@ for (const { name, content } of javaFiles) {
 // ─── Processar Entidades ──────────────────────
 console.log('\n🔍 A processar entidades...');
 
+const JAVA_KEYWORDS = new Set([
+  'class', 'interface', 'enum', 'extends', 'implements',
+  'return', 'if', 'else', 'for', 'while', 'new', 'throws',
+]);
+
 for (const { name, content } of javaFiles) {
-  // Ignora enums
   if (/^public enum /m.test(content)) continue;
 
-  // Só processa classes com anotações JPA relevantes
   if (!/@Entity|@Embeddable|@MappedSuperclass/.test(content)) {
-    console.log(`   ⚠️  Ignorado (sem @Entity/@Embeddable/@MappedSuperclass): ${name}`);
+    console.log(`   ⚠️  Ignorado: ${name}`);
     continue;
   }
 
   console.log(`   ↳ Interface: ${name}`);
 
-  // Extrai campos privados: "private Tipo nome;"
-  const fieldRegex = /^\s+private\s+([A-Za-z<>\[\]?,\s]+?)\s+(\w+)\s*;/gm;
+  // Remove comentários para não apanhar falsos positivos
+  const clean = content
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\/\/.*$/gm, '');
+
+  const javaLines = clean.split('\n');
   const fields = [];
-  let match;
+  let pendingRelation = false;
 
-  while ((match = fieldRegex.exec(content)) !== null) {
-    const rawType = match[1].trim();
-    const fieldName = match[2].trim();
+  for (const raw of javaLines) {
+    const line = raw.trim();
 
-    if (fieldName === 'serialVersionUID') continue;
+    // Detecta anotações de relação JPA
+    if (/@(ManyToOne|OneToMany|ManyToMany|OneToOne|Embedded|ElementCollection)/.test(line)) {
+      pendingRelation = true;
+      continue;
+    }
 
-    // Trata genéricos: List<Player>, Set<String>, etc.
-    const genericMatch = rawType.match(/^(?:List|Set|Collection|Page)<([A-Za-z]+)>$/);
+    // Salta outras anotações
+    if (line.startsWith('@')) continue;
+
+    // Tenta apanhar declaração de campo
+    const fieldMatch = line.match(
+      /^(?:(?:private|protected|public)\s+)?(?:static\s+)?(?:final\s+)?([A-Za-z][A-Za-z0-9_]*(?:<[A-Za-z0-9_,\s<>?]+>)?)\s+(\w+)\s*[;=]/
+    );
+
+    if (!fieldMatch) {
+      if (line && !['{', '}', ''].includes(line)) pendingRelation = false;
+      continue;
+    }
+
+    const rawType = fieldMatch[1].trim();
+    const fieldName = fieldMatch[2].trim();
+
+    if (JAVA_KEYWORDS.has(rawType) || fieldName === 'serialVersionUID') {
+      pendingRelation = false;
+      continue;
+    }
+
+    const isPrivate = /^private\s/.test(line);
+    if (!isPrivate && !pendingRelation) continue;
+
+    pendingRelation = false;
+
+    // Trata genéricos: List<Player>, Set<Coach>, etc.
+    const genericMatch = rawType.match(/^(?:List|Set|Collection|Page)<([A-Za-z0-9_]+)>$/);
     let tsType;
     let refType = null;
 
@@ -157,7 +192,7 @@ for (const { name, content } of javaFiles) {
   });
 
   const kebab = toKebab(name);
-  const lines = [
+  const outputLines = [
     `// AUTO-GENERATED — não editar manualmente`,
     `// Fonte: ${name}.java`,
     ``,
@@ -168,7 +203,7 @@ for (const { name, content } of javaFiles) {
     `}`,
   ].filter(l => l !== null);
 
-  fs.writeFileSync(path.join(ANGULAR_OUTPUT_DIR, `${kebab}.model.ts`), lines.join('\n') + '\n');
+  fs.writeFileSync(path.join(ANGULAR_OUTPUT_DIR, `${kebab}.model.ts`), outputLines.join('\n') + '\n');
   generatedInterfaces.push(name);
 }
 

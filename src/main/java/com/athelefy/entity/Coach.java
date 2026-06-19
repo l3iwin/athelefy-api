@@ -12,9 +12,7 @@ public class Coach implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @OneToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_role_coach"))
-    private CoachRole coachRole;
+    private String role;
     @OneToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_user_coach"))
     private Users users;
@@ -23,9 +21,9 @@ public class Coach implements Serializable {
 
     public Coach() {}
 
-    public Coach(Long id, CoachRole coachRole, Users users) {
+    public Coach(Long id, String role, Users users) {
         this.id = id;
-        this.coachRole = coachRole;
+        this.role = role;
         this.users = users;
     }
 
@@ -37,12 +35,12 @@ public class Coach implements Serializable {
         this.id = id;
     }
 
-    public CoachRole getCoachRole() {
-        return coachRole;
+    public String getCoachRole() {
+        return role;
     }
 
-    public void setCoachRole(CoachRole coachRole) {
-        this.coachRole = coachRole;
+    public void setCoachRole(String role) {
+        this.role = role;
     }
 
     public Users getUser() {
@@ -57,7 +55,7 @@ public class Coach implements Serializable {
     public String toString() {
         return "Coach{" +
                 "id=" + id +
-                ", coachRole=" + coachRole +
+                ", role=" + role +
                 ", user=" + users +
                 '}';
     }
@@ -66,11 +64,11 @@ public class Coach implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Coach coach = (Coach) o;
-        return Objects.equals(id, coach.id) && Objects.equals(coachRole, coach.coachRole) && Objects.equals(users, coach.users) && Objects.equals(teams, coach.teams);
+        return Objects.equals(id, coach.id) && Objects.equals(role, coach.role) && Objects.equals(users, coach.users) && Objects.equals(teams, coach.teams);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, coachRole, users, teams);
+        return Objects.hash(id, role, users, teams);
     }
 }

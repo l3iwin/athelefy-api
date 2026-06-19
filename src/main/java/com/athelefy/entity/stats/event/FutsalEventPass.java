@@ -1,4 +1,4 @@
-package com.athelefy.entity.event;
+package com.athelefy.entity.stats.event;
 
 import jakarta.persistence.*;
 

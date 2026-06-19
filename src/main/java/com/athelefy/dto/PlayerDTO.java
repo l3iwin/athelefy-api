@@ -7,8 +7,10 @@ import java.util.Set;
 public class PlayerDTO implements Serializable {
 
     private Long id;
+    private String fullName;
     private String position;
-    private String number;
+    private String shirtNumber;
+    private String federationNumber;
     private String weight;
     private String height;
     private UsersDTO usersDTO;
@@ -16,13 +18,16 @@ public class PlayerDTO implements Serializable {
 
     public PlayerDTO() {}
 
-    public PlayerDTO(Long id, String position, String number, String weight, String height, UsersDTO usersDTO) {
+    public PlayerDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, UsersDTO usersDTO, Set<TeamDTO> teamDTOS) {
         this.id = id;
+        this.fullName = fullName;
         this.position = position;
-        this.number = number;
+        this.shirtNumber = shirtNumber;
+        this.federationNumber = federationNumber;
         this.weight = weight;
         this.height = height;
         this.usersDTO = usersDTO;
+        this.teamDTOS = teamDTOS;
     }
 
     public Long getId() {
@@ -33,6 +38,14 @@ public class PlayerDTO implements Serializable {
         this.id = id;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public String getPosition() {
         return position;
     }
@@ -41,12 +54,20 @@ public class PlayerDTO implements Serializable {
         this.position = position;
     }
 
-    public String getNumber() {
-        return number;
+    public String getShirtNumber() {
+        return shirtNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setShirtNumber(String shirtNumber) {
+        this.shirtNumber = shirtNumber;
+    }
+
+    public String getFederationNumber() {
+        return federationNumber;
+    }
+
+    public void setFederationNumber(String federationNumber) {
+        this.federationNumber = federationNumber;
     }
 
     public String getWeight() {
@@ -65,35 +86,24 @@ public class PlayerDTO implements Serializable {
         this.height = height;
     }
 
-    public UsersDTO getUser() {
-        return usersDTO;
+    public Set<TeamDTO> getTeamDTOS() {
+        return teamDTOS;
     }
 
-    public void setUser(UsersDTO usersDTO) {
-        this.usersDTO = usersDTO;
+    public void setTeamDTOS(Set<TeamDTO> teamDTOS) {
+        this.teamDTOS = teamDTOS;
     }
 
     @Override
     public String toString() {
-        return "Player{" +
+        return "PlayerDTO{" +
                 "id=" + id +
+                ", fullName='" + fullName + '\'' +
                 ", position='" + position + '\'' +
-                ", number='" + number + '\'' +
+                ", shirtNumber='" + shirtNumber + '\'' +
+                ", federationNumber='" + federationNumber + '\'' +
                 ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
-                ", user=" + usersDTO +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        PlayerDTO playerDTO = (PlayerDTO) o;
-        return Objects.equals(id, playerDTO.id) && Objects.equals(position, playerDTO.position) && Objects.equals(number, playerDTO.number) && Objects.equals(weight, playerDTO.weight) && Objects.equals(height, playerDTO.height) && Objects.equals(usersDTO, playerDTO.usersDTO) && Objects.equals(teamDTOS, playerDTO.teamDTOS);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, position, number, weight, height, usersDTO, teamDTOS);
     }
 }

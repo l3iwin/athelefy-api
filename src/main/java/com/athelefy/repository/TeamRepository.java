@@ -8,6 +8,5 @@ import java.util.Set;
 
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
-    Optional<Set<Team>> findTeamsBy_CoachId(Long coachId);
-
+//    Optional<Set<Team>> findTeamsBy_CoachId(Long coachId);
 }

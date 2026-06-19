@@ -1,4 +1,4 @@
-package com.athelefy.entity.event;
+package com.athelefy.entity.stats.event;
 
 import jakarta.persistence.*;
 
@@ -16,7 +16,7 @@ public class FootballEventPass implements Serializable {
     @Enumerated(EnumType.STRING)
     private FieldThird third;
     private boolean keyPass;
-    @Column(precision = 5, scale = 3)
+    @Column(precision = 5)
     private Double expectedAssist;
     private boolean underPressure;
     @OneToOne(fetch = FetchType.LAZY)

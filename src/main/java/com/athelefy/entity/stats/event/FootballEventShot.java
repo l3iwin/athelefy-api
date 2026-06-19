@@ -1,9 +1,6 @@
 package com.athelefy.entity.stats.event;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -12,21 +9,25 @@ import java.util.Objects;
 public class FootballEventShot implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
+    @Enumerated(EnumType.STRING)
+    private BodyPart bodyPart;
+    @Enumerated(EnumType.STRING)
+    private Situation situation;
+    private boolean wasGoal;
+    @OneToOne(fetch = FetchType.LAZY)
     private Event event;
-    private String bodyPart;
-    private String situation;
+
+    public enum BodyPart {
+        FOOT, HEAD, OTHER
+    }
+
+    public enum Situation {
+        OPEN_PLAY, SET_PIECE, PENALTY
+    }
 
     public FootballEventShot() {}
-
-    public FootballEventShot(Long id, Event event, String bodyPart, String situation) {
-        this.id = id;
-        this.event = event;
-        this.bodyPart = bodyPart;
-        this.situation = situation;
-    }
 
     public Long getId() {
         return id;
@@ -34,6 +35,30 @@ public class FootballEventShot implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public BodyPart getBodyPart() {
+        return bodyPart;
+    }
+
+    public void setBodyPart(BodyPart bodyPart) {
+        this.bodyPart = bodyPart;
+    }
+
+    public Situation getSituation() {
+        return situation;
+    }
+
+    public void setSituation(Situation situation) {
+        this.situation = situation;
+    }
+
+    public boolean isWasGoal() {
+        return wasGoal;
+    }
+
+    public void setWasGoal(boolean wasGoal) {
+        this.wasGoal = wasGoal;
     }
 
     public Event getEvent() {
@@ -44,41 +69,26 @@ public class FootballEventShot implements Serializable {
         this.event = event;
     }
 
-    public String getBodyPart() {
-        return bodyPart;
-    }
-
-    public void setBodyPart(String bodyPart) {
-        this.bodyPart = bodyPart;
-    }
-
-    public String getSituation() {
-        return situation;
-    }
-
-    public void setSituation(String situation) {
-        this.situation = situation;
+    @Override
+    public String toString() {
+        return "FootballEventShot{" +
+                "id=" + id +
+                ", bodyPart=" + bodyPart +
+                ", situation=" + situation +
+                ", wasGoal=" + wasGoal +
+                ", event=" + event +
+                '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         FootballEventShot that = (FootballEventShot) o;
-        return Objects.equals(id, that.id) && Objects.equals(event, that.event) && Objects.equals(bodyPart, that.bodyPart) && Objects.equals(situation, that.situation);
+        return wasGoal == that.wasGoal && Objects.equals(id, that.id) && bodyPart == that.bodyPart && situation == that.situation && Objects.equals(event, that.event);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, event, bodyPart, situation);
-    }
-
-    @Override
-    public String toString() {
-        return "FootballEventShot{" +
-                "id=" + id +
-                ", event=" + event +
-                ", bodyPart='" + bodyPart + '\'' +
-                ", situation='" + situation + '\'' +
-                '}';
+        return Objects.hash(id, bodyPart, situation, wasGoal, event);
     }
 }

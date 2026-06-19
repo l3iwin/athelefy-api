@@ -1,16 +1,9 @@
-package com.athelefy.entity;
-
-import jakarta.persistence.*;
+package com.athelefy.dto;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
-@Entity
-public class Player {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PlayerSummaryDTO implements Serializable {
     private Long id;
     private String fullName;
     private String position;
@@ -18,15 +11,10 @@ public class Player {
     private String federationNumber;
     private String weight;
     private String height;
-    @OneToOne
-    @JoinColumn(foreignKey = @ForeignKey(name = "fk_user_player"))
-    private Users users;
-    @ManyToMany(mappedBy = "players")
-    Set<Team> teams;
 
-    public Player() {}
+    public PlayerSummaryDTO() {}
 
-    public Player(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, Users users, Set<Team> teams) {
+    public PlayerSummaryDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height) {
         this.id = id;
         this.fullName = fullName;
         this.position = position;
@@ -34,8 +22,6 @@ public class Player {
         this.federationNumber = federationNumber;
         this.weight = weight;
         this.height = height;
-        this.users = users;
-        this.teams = teams;
     }
 
     public Long getId() {
@@ -44,6 +30,14 @@ public class Player {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPosition() {
@@ -62,6 +56,14 @@ public class Player {
         this.shirtNumber = shirtNumber;
     }
 
+    public String getFederationNumber() {
+        return federationNumber;
+    }
+
+    public void setFederationNumber(String federationNumber) {
+        this.federationNumber = federationNumber;
+    }
+
     public String getWeight() {
         return weight;
     }
@@ -78,51 +80,28 @@ public class Player {
         this.height = height;
     }
 
-    public Users getUser() {
-        return users;
-    }
-
-    public void setUser(Users users) {
-        this.users = users;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getFederationNumber() {
-        return federationNumber;
-    }
-
-    public void setFederationNumber(String federationNumber) {
-        this.federationNumber = federationNumber;
-    }
-
     @Override
     public String toString() {
-        return "Player{" +
+        return "PlayerSummaryDTO{" +
                 "id=" + id +
+                ", fullName='" + fullName + '\'' +
                 ", position='" + position + '\'' +
                 ", shirtNumber='" + shirtNumber + '\'' +
+                ", federationNumber='" + federationNumber + '\'' +
                 ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
-                ", user=" + users +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
-        return Objects.equals(id, player.id);
+        PlayerSummaryDTO that = (PlayerSummaryDTO) o;
+        return Objects.equals(id, that.id) && Objects.equals(fullName, that.fullName) && Objects.equals(position, that.position) && Objects.equals(shirtNumber, that.shirtNumber) && Objects.equals(federationNumber, that.federationNumber) && Objects.equals(weight, that.weight) && Objects.equals(height, that.height);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, fullName, position, shirtNumber, federationNumber, weight, height);
     }
 }

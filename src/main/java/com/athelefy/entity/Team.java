@@ -10,22 +10,25 @@ import java.util.Set;
 public class Team implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String category;
+    private String sport;
     @ManyToOne
     private Club club;
-    @ManyToOne
-    private Sport sport;
-    @ManyToMany
+//    @ManyToOne
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "player_teams", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "player_id"))
     Set<Player> players;
     @ManyToMany
     @JoinTable(name = "coaches_teams", joinColumns = @JoinColumn(name = "team_id"), inverseJoinColumns = @JoinColumn(name = "coach_id"))
     Set<Coach> coaches;
 
-    public Team(Long id, String name, String category, Club club, Sport sport) {
+    public Team() {
+    }
+
+    public Team(Long id, String name, String category, Club club, String sport) {
         this.id = id;
         this.name = name;
         this.category = category;
@@ -65,12 +68,20 @@ public class Team implements Serializable {
         this.club = club;
     }
 
-    public Sport getSport() {
+    public String getSport() {
         return sport;
     }
 
-    public void setSport(Sport sport) {
+    public void setSport(String sport) {
         this.sport = sport;
+    }
+
+    public Set<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Set<Player> players) {
+        this.players = players;
     }
 
     @Override
@@ -79,8 +90,9 @@ public class Team implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", category='" + category + '\'' +
+                ", sport='" + sport + '\'' +
                 ", club=" + club +
-                ", sport=" + sport +
+                ", players=" + players +
                 '}';
     }
 
@@ -88,11 +100,11 @@ public class Team implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Team team = (Team) o;
-        return Objects.equals(id, team.id) && Objects.equals(name, team.name) && Objects.equals(category, team.category) && Objects.equals(club, team.club) && Objects.equals(sport, team.sport) && Objects.equals(players, team.players) && Objects.equals(coaches, team.coaches);
+        return Objects.equals(id, team.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, category, club, sport, players, coaches);
+        return Objects.hash(id);
     }
 }
