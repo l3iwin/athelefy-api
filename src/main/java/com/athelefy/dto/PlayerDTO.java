@@ -1,6 +1,9 @@
 package com.athelefy.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
@@ -13,12 +16,15 @@ public class PlayerDTO implements Serializable {
     private String federationNumber;
     private String weight;
     private String height;
+    private LocalDate dateBirth;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private String nationality;
     private UsersDTO usersDTO;
     Set<TeamDTO> teamDTOS;
 
     public PlayerDTO() {}
 
-    public PlayerDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, UsersDTO usersDTO, Set<TeamDTO> teamDTOS) {
+    public PlayerDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, LocalDate dateBirth, String nationality, UsersDTO usersDTO, Set<TeamDTO> teamDTOS) {
         this.id = id;
         this.fullName = fullName;
         this.position = position;
@@ -26,6 +32,8 @@ public class PlayerDTO implements Serializable {
         this.federationNumber = federationNumber;
         this.weight = weight;
         this.height = height;
+        this.dateBirth = dateBirth;
+        this.nationality = nationality;
         this.usersDTO = usersDTO;
         this.teamDTOS = teamDTOS;
     }
@@ -86,6 +94,22 @@ public class PlayerDTO implements Serializable {
         this.height = height;
     }
 
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
+
+    public void setDateBirth(LocalDate dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     public Set<TeamDTO> getTeamDTOS() {
         return teamDTOS;
     }
@@ -104,6 +128,20 @@ public class PlayerDTO implements Serializable {
                 ", federationNumber='" + federationNumber + '\'' +
                 ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
+                ", dateBirth=" + dateBirth +
+                ", nationality='" + nationality + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerDTO playerDTO = (PlayerDTO) o;
+        return Objects.equals(id, playerDTO.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }

@@ -5,6 +5,7 @@ import com.athelefy.entity.Team;
 import com.athelefy.mapper.TeamMapper;
 import com.athelefy.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -23,10 +24,13 @@ public class TeamService {
         this.teamMapper = teamMapper;
     }
 
-    public TeamDTO getTeamsById(Long teamId){
+    public TeamDTO getSquadByTeamId(Long teamId){
         Optional<Team> optionalTeam = teamRepository.findById(teamId);
-        System.out.println("Players da entidade: " + optionalTeam.map(Team::getPlayers).orElse(null));
         return optionalTeam.map(teamMapper::toTeamDTO).orElse(null);
     }
 
+    public TeamDTO getClubByTeamId(Long teamId) {
+        Optional<Team> optionalTeam = teamRepository.findById(teamId);
+        return optionalTeam.map(teamMapper::toTeamDTO).orElse(null);
+    }
 }

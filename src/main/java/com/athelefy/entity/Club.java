@@ -17,6 +17,8 @@ public class Club implements Serializable {
     @OneToMany(mappedBy = "club")
     private Set<Team> team;
 
+    public Club() {}
+
     public Club(Long id, String name, String country) {
         this.id = id;
         this.name = name;
@@ -47,6 +49,14 @@ public class Club implements Serializable {
         this.country = country;
     }
 
+    public Set<Team> getTeam() {
+        return team;
+    }
+
+    public void setTeam(Set<Team> team) {
+        this.team = team;
+    }
+
     @Override
     public String toString() {
         return "Clubs{" +
@@ -60,11 +70,11 @@ public class Club implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Club club = (Club) o;
-        return Objects.equals(id, club.id) && Objects.equals(name, club.name) && Objects.equals(country, club.country) && Objects.equals(team, club.team);
+        return Objects.equals(id, club.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, country, team);
+        return Objects.hash(id);
     }
 }

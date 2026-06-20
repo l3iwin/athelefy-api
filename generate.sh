@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # ─────────────────────────────────────────────────────────────
-# Athelefy — Entity Generator
-# Corre em qualquer OS com Docker instalado (Linux, Mac, Windows)
+# Athelefy — Entity, DTO & Endpoint Generator
+# Corre em qualquer OS com Docker instalado (Linux, Mac, Windows/WSL2)
 # ─────────────────────────────────────────────────────────────
 
 # Caminho absoluto para o repo backend (onde está este script)
@@ -12,9 +12,12 @@ FRONTEND_DIR="$(dirname "$BACKEND_DIR")/athelefy-ui"
 
 # Caminhos internos ao Java (relativos ao repo backend)
 JAVA_ENTITIES_SUBPATH="src/main/java/com/athelefy/entity"
+JAVA_DTO_SUBPATH="src/main/java/com/athelefy/dto"
+JAVA_CONTROLLER_SUBPATH="src/main/java/com/athelefy/controller"
 
-# Caminho de output no frontend (relativos ao repo frontend)
-ANGULAR_OUTPUT_SUBPATH="src/app/shared/entities"
+# Caminhos de output no frontend (relativos ao repo frontend)
+ANGULAR_ENTITIES_SUBPATH="src/app/shared/entities"
+ANGULAR_SERVICES_SUBPATH="src/app/shared/services"
 
 # ─── Validações ──────────────────────────────────────────────
 
@@ -34,22 +37,37 @@ if [ ! -d "$BACKEND_DIR/$JAVA_ENTITIES_SUBPATH" ]; then
   exit 1
 fi
 
-# Garante que a pasta de output existe (para o Docker montar)
-mkdir -p "$FRONTEND_DIR/$ANGULAR_OUTPUT_SUBPATH"
+if [ ! -d "$BACKEND_DIR/$JAVA_DTO_SUBPATH" ]; then
+  echo "⚠️  Pasta de DTOs não encontrada: $BACKEND_DIR/$JAVA_DTO_SUBPATH (será ignorada)"
+  mkdir -p "$BACKEND_DIR/$JAVA_DTO_SUBPATH"
+fi
+
+if [ ! -d "$BACKEND_DIR/$JAVA_CONTROLLER_SUBPATH" ]; then
+  echo "⚠️  Pasta de controllers não encontrada: $BACKEND_DIR/$JAVA_CONTROLLER_SUBPATH (será ignorada)"
+  mkdir -p "$BACKEND_DIR/$JAVA_CONTROLLER_SUBPATH"
+fi
+
+# Garante que as pastas de output existem (para o Docker montar)
+mkdir -p "$FRONTEND_DIR/$ANGULAR_ENTITIES_SUBPATH"
+mkdir -p "$FRONTEND_DIR/$ANGULAR_SERVICES_SUBPATH"
 
 # ─── Execução ─────────────────────────────────────────────────
 
-echo "🚀 A iniciar geração de entidades..."
+echo "🚀 A iniciar geração de entidades, DTOs e services..."
 echo "   Backend : $BACKEND_DIR"
 echo "   Frontend: $FRONTEND_DIR"
 echo ""
 
 docker run --rm \
-  -v "$BACKEND_DIR/$JAVA_ENTITIES_SUBPATH:/java-src:ro" \
-  -v "$FRONTEND_DIR/$ANGULAR_OUTPUT_SUBPATH:/angular-out" \
+  -v "$BACKEND_DIR/$JAVA_ENTITIES_SUBPATH:/java-entities:ro" \
+  -v "$BACKEND_DIR/$JAVA_DTO_SUBPATH:/java-dto:ro" \
+  -v "$BACKEND_DIR/$JAVA_CONTROLLER_SUBPATH:/java-controller:ro" \
+  -v "$FRONTEND_DIR/$ANGULAR_ENTITIES_SUBPATH:/angular-entities" \
+  -v "$FRONTEND_DIR/$ANGULAR_SERVICES_SUBPATH:/angular-services" \
   -v "$BACKEND_DIR/generate-entities.mjs:/app/generate-entities.mjs:ro" \
   node:20-alpine \
   node /app/generate-entities.mjs
 
 echo ""
-echo "📂 Ficheiros gerados em: $FRONTEND_DIR/$ANGULAR_OUTPUT_SUBPATH"
+echo "📂 Entidades geradas em : $FRONTEND_DIR/$ANGULAR_ENTITIES_SUBPATH"
+echo "📂 Services gerados em  : $FRONTEND_DIR/$ANGULAR_SERVICES_SUBPATH"

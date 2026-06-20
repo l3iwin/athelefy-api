@@ -1,6 +1,9 @@
 package com.athelefy.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class PlayerSummaryDTO implements Serializable {
@@ -11,10 +14,13 @@ public class PlayerSummaryDTO implements Serializable {
     private String federationNumber;
     private String weight;
     private String height;
+    @JsonFormat(pattern = "dd-MM-yyyy")
+    private LocalDate dateBirth;
+    private String nationality;
 
     public PlayerSummaryDTO() {}
 
-    public PlayerSummaryDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height) {
+    public PlayerSummaryDTO(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, LocalDate dateBirth, String nationality) {
         this.id = id;
         this.fullName = fullName;
         this.position = position;
@@ -22,6 +28,8 @@ public class PlayerSummaryDTO implements Serializable {
         this.federationNumber = federationNumber;
         this.weight = weight;
         this.height = height;
+        this.dateBirth = dateBirth;
+        this.nationality = nationality;
     }
 
     public Long getId() {
@@ -80,6 +88,22 @@ public class PlayerSummaryDTO implements Serializable {
         this.height = height;
     }
 
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
+
+    public void setDateBirth(LocalDate dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
+    }
+
     @Override
     public String toString() {
         return "PlayerSummaryDTO{" +
@@ -90,6 +114,8 @@ public class PlayerSummaryDTO implements Serializable {
                 ", federationNumber='" + federationNumber + '\'' +
                 ", weight='" + weight + '\'' +
                 ", height='" + height + '\'' +
+                ", dateBirth=" + dateBirth +
+                ", nationality='" + nationality + '\'' +
                 '}';
     }
 
@@ -97,11 +123,11 @@ public class PlayerSummaryDTO implements Serializable {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         PlayerSummaryDTO that = (PlayerSummaryDTO) o;
-        return Objects.equals(id, that.id) && Objects.equals(fullName, that.fullName) && Objects.equals(position, that.position) && Objects.equals(shirtNumber, that.shirtNumber) && Objects.equals(federationNumber, that.federationNumber) && Objects.equals(weight, that.weight) && Objects.equals(height, that.height);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fullName, position, shirtNumber, federationNumber, weight, height);
+        return Objects.hash(id);
     }
 }

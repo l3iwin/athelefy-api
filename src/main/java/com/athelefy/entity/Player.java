@@ -3,6 +3,7 @@ package com.athelefy.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
@@ -18,6 +19,8 @@ public class Player {
     private String federationNumber;
     private String weight;
     private String height;
+    private LocalDate dateBirth;
+    private String nationality;
     @OneToOne
     @JoinColumn(foreignKey = @ForeignKey(name = "fk_user_player"))
     private Users users;
@@ -26,7 +29,7 @@ public class Player {
 
     public Player() {}
 
-    public Player(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, Users users, Set<Team> teams) {
+    public Player(Long id, String fullName, String position, String shirtNumber, String federationNumber, String weight, String height, LocalDate dateBirth, String nationality, Users users, Set<Team> teams) {
         this.id = id;
         this.fullName = fullName;
         this.position = position;
@@ -34,6 +37,8 @@ public class Player {
         this.federationNumber = federationNumber;
         this.weight = weight;
         this.height = height;
+        this.dateBirth = dateBirth;
+        this.nationality = nationality;
         this.users = users;
         this.teams = teams;
     }
@@ -100,6 +105,22 @@ public class Player {
 
     public void setFederationNumber(String federationNumber) {
         this.federationNumber = federationNumber;
+    }
+
+    public LocalDate getDateBirth() {
+        return dateBirth;
+    }
+
+    public void setDateBirth(LocalDate dateBirth) {
+        this.dateBirth = dateBirth;
+    }
+
+    public String getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     @Override
